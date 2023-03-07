@@ -26,8 +26,8 @@ public class FeeCalculator {
                     MALL, Map.of(MOTORCYCLE, new Rate(10),
                             CARORSUV, new Rate(20),
                             BUSORTRUCK, new Rate(50)),
-                    STADIUM, Map.of(MOTORCYCLE, new Rate(100, 12, List.of(new FixedRate(0, 4, 30), new FixedRate(4, 12, 60))),
-                            CARORSUV, new Rate(200, 12, List.of(new FixedRate(0, 4, 60), new FixedRate(4, 12, 120)))));
+                    STADIUM, Map.of(MOTORCYCLE, new Rate(100, 12, List.of(new FixedRate(0, 30), new FixedRate(4, 60))),
+                            CARORSUV, new Rate(200, 12, List.of(new FixedRate(0, 60), new FixedRate(4, 120)))));
 
     public int calculate(final Venue venue,
                          final Spot spot,
@@ -48,16 +48,14 @@ public class FeeCalculator {
         if (calhours > rate.getHourlyRateFrom())
             fees = (calhours - rate.getHourlyRateFrom()) * rate.getHourlyRate();
 
-        if (rate.getFixedRates().isEmpty()) {
-            return fees;
-        } else {
+        if (!rate.getFixedRates().isEmpty()) {
             for (FixedRate fr : rate.getFixedRates()) {
                 if ( fr.getFrom() < calhours )
                     fees = fees + fr.getRate();
 
             }
-            return  fees;
         }
+        return fees;
     }
 
 
