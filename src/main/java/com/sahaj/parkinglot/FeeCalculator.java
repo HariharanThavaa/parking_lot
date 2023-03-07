@@ -51,7 +51,6 @@ public class FeeCalculator {
             for (FixedRate fr : rate.getFixedRates()) {
                 if ( fr.from() < ceil )
                     fees = fees + fr.rate();
-
             }
         }
         return fees;

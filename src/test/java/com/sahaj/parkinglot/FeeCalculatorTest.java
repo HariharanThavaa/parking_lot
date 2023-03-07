@@ -25,7 +25,6 @@ public class FeeCalculatorTest {
     public void testCalculateSmallVenueCarSpot() {
         expectException(SMALL, CAR_OR_SUV);
         expectException(SMALL, BUS_OR_TRUCK);
-        expectException(STADIUM, BUS_OR_TRUCK);
     }
 
     @Test
@@ -70,6 +69,11 @@ public class FeeCalculatorTest {
         validate(STADIUM, CAR_OR_SUV, 12, 180);
         validate(STADIUM, CAR_OR_SUV, 12.5, 380);
         validate(STADIUM, CAR_OR_SUV, 13.5, 580);
+    }
+
+    @Test
+    public void testCalculateStadiumVenueSpotBus() {
+        expectException(STADIUM, BUS_OR_TRUCK);
     }
 
     private void validate(final Venue venue,
