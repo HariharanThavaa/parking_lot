@@ -11,7 +11,7 @@ import static com.sahaj.parkinglot.FeeCalculator.Spot;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class FeeCalculatorTest {
-    private FeeCalculator calculator = new FeeCalculator();
+    private final FeeCalculator calculator = new FeeCalculator();
 
     @Test
     public void testCalculateSmallVenueMotoCycleSpot() {
@@ -23,9 +23,9 @@ public class FeeCalculatorTest {
 
     @Test
     public void testCalculateSmallVenueCarSpot() {
-        expectException(SMALL, CAR_OR_SUV, 1);
-        expectException(SMALL, BUS_OR_TRUCK, 1);
-        expectException(STADIUM, BUS_OR_TRUCK, 1);
+        expectException(SMALL, CAR_OR_SUV);
+        expectException(SMALL, BUS_OR_TRUCK);
+        expectException(STADIUM, BUS_OR_TRUCK);
     }
 
     @Test
@@ -80,11 +80,10 @@ public class FeeCalculatorTest {
     }
 
     private void expectException(final Venue venue,
-                                 final Spot spot,
-                                 final double hours) {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            calculator.calculate(venue, spot, hours);
-        }).withMessage("Invalid input");
+                                 final Spot spot) {
+        assertThatIllegalArgumentException().isThrownBy(() ->
+            calculator.calculate(venue, spot, 1)
+        ).withMessage("Invalid input");
     }
 
     @Test
