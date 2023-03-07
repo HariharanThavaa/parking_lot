@@ -23,9 +23,9 @@ public class FeeCalculatorTest {
 
     @Test
     public void testCalculateSmallVenueCarSpot() {
-        expectException(SMALL, CARORSUV, 1);
-        expectException(SMALL, BUSORTRUCK, 1);
-        expectException(STADIUM, BUSORTRUCK, 1);
+        expectException(SMALL, CAR_OR_SUV, 1);
+        expectException(SMALL, BUS_OR_TRUCK, 1);
+        expectException(STADIUM, BUS_OR_TRUCK, 1);
     }
 
     @Test
@@ -38,18 +38,18 @@ public class FeeCalculatorTest {
 
     @Test
     public void testCalculateMallVenueCarSpot() {
-        validate(MALL, CARORSUV, 1, 20);
-        validate(MALL, CARORSUV, 2, 40);
-        validate(MALL, CARORSUV, 3, 60);
-        validate(MALL, CARORSUV, 1.5, 40);
+        validate(MALL, CAR_OR_SUV, 1, 20);
+        validate(MALL, CAR_OR_SUV, 2, 40);
+        validate(MALL, CAR_OR_SUV, 3, 60);
+        validate(MALL, CAR_OR_SUV, 1.5, 40);
     }
 
     @Test
     public void testCalculateMallVenueBusSpot() {
-        validate(MALL, BUSORTRUCK, 1, 50);
-        validate(MALL, BUSORTRUCK, 2, 100);
-        validate(MALL, BUSORTRUCK, 3, 150);
-        validate(MALL, BUSORTRUCK, 1.5, 100);
+        validate(MALL, BUS_OR_TRUCK, 1, 50);
+        validate(MALL, BUS_OR_TRUCK, 2, 100);
+        validate(MALL, BUS_OR_TRUCK, 3, 150);
+        validate(MALL, BUS_OR_TRUCK, 1.5, 100);
     }
 
     @Test
@@ -64,12 +64,12 @@ public class FeeCalculatorTest {
 
     @Test
     public void testCalculateStadiumVenueSpotCar() {
-        validate(STADIUM, CARORSUV, 1, 60);
-        validate(STADIUM, CARORSUV, 2, 60);
-        validate(STADIUM, CARORSUV, 4, 60);
-        validate(STADIUM, CARORSUV, 12, 180);
-        validate(STADIUM, CARORSUV, 12.5, 380);
-        validate(STADIUM, CARORSUV, 13.5, 580);
+        validate(STADIUM, CAR_OR_SUV, 1, 60);
+        validate(STADIUM, CAR_OR_SUV, 2, 60);
+        validate(STADIUM, CAR_OR_SUV, 4, 60);
+        validate(STADIUM, CAR_OR_SUV, 12, 180);
+        validate(STADIUM, CAR_OR_SUV, 12.5, 380);
+        validate(STADIUM, CAR_OR_SUV, 13.5, 580);
     }
 
     private void validate(final Venue venue,
@@ -90,15 +90,15 @@ public class FeeCalculatorTest {
     @Test
     public void testExample2(){
         validate(MALL, MOTORCYCLE, 3.5, 40);
-        validate(MALL, CARORSUV, 6.01, 140);
-        validate(MALL, BUSORTRUCK, 1.99, 100);
+        validate(MALL, CAR_OR_SUV, 6.01, 140);
+        validate(MALL, BUS_OR_TRUCK, 1.99, 100);
     }
 
     @Test
     public void testExample3(){
         validate(STADIUM, MOTORCYCLE, 3.7, 30);
         validate(STADIUM, MOTORCYCLE, 14.99, 390);
-        validate(STADIUM, CARORSUV, 11.5, 180);
-        validate(STADIUM, CARORSUV, 13.05, 580);
+        validate(STADIUM, CAR_OR_SUV, 11.5, 180);
+        validate(STADIUM, CAR_OR_SUV, 13.05, 580);
     }
 }
