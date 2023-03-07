@@ -10,7 +10,6 @@ import static com.sahaj.parkinglot.FeeCalculator.Venue;
 import static com.sahaj.parkinglot.FeeCalculator.Spot;
 import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
-
 public class FeeCalculatorTest {
     private FeeCalculator calculator = new FeeCalculator();
 

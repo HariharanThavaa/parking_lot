@@ -12,15 +12,15 @@ import static com.sahaj.parkinglot.FeeCalculator.Spot.BUSORTRUCK;
 
 public class FeeCalculator {
 
-    public static enum Venue {
+    public enum Venue {
         SMALL, MALL, STADIUM, AIRPORT
     }
 
-    public static enum Spot {
+    public enum Spot {
         MOTORCYCLE, CARORSUV, BUSORTRUCK
     }
 
-    private Map<Venue, Map <Spot, Rate>> feeModel =
+    private final Map<Venue, Map <Spot, Rate>> feeModel =
             Map.of(
                     SMALL, Map.of(MOTORCYCLE, new Rate(10)),
                     MALL, Map.of(MOTORCYCLE, new Rate(10),
