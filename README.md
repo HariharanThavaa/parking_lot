@@ -1,31 +1,38 @@
 # parking_lot
 
 
-# Inputs
+## Inputs
+```
 Venue
 Spot
 Hours
+```
 
-# Output
+## Output
+```
 Amount
+```
 
-
-# Venue
+## Venue
+```
 Small
 Mall
 Stadium
 Airport
+```
 
-# Spot
+## Spot
+```
 Motorcycle
 Car/SUV
 Bus/Truck
+```
 
-# equation
+## Equation
+```
 Per hour
 Up to few hours
 Per day
-
-
+```
 
 
